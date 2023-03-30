@@ -27,7 +27,7 @@ public class area_pere_circum{
         
         System.out.println("parameter of rectangle is: "+ 2*(l+b));
         System.out.println("area of rectangle is: "+ l*b);
-
+        
     }
 
 }

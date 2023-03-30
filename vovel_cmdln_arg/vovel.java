@@ -9,7 +9,7 @@ public class vovel {
                 System.out.println(args[i]+" : DO START WITH A VOVEL");
             }
             else if(args[i].charAt(0) >= '0' && args[i].charAt(0) <= '9'){
-                System.out.println(args[i]+" : IT IS INVALID INPUT NAME CANT START FROM NUMBERS");
+                System.out.println(args[i]+" : IT IS A INVALID INPUT NAME CANT START FROM NUMBERS");
             }
             else{
                 System.out.println(args[i]+" : DOES NOT START WITH A VOVEL");

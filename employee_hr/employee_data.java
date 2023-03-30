@@ -32,7 +32,7 @@ public class employee_data {
 
         Scanner myObj = new Scanner(System.in);
         for(int i =0; i<s;i++){
-        emp[i] = Integer.parseInt(args[i]); 
+            emp[i] = Integer.parseInt(args[i]); 
         }
         System.out.println("Salary greater then what: ");
         n = myObj.nextInt();
