@@ -19,20 +19,18 @@ class array_func{
         return 0;
     } ;
     static void display(int arr[] , int s){
-        for(int i = 0; i<s; i++)
+        for(int i = 0; i<s; i++) 
             System.out.print(arr[i]+" ");
         
     };
     static void deletion(int arr[] , int s) {
 		System.out.println("\n\nMULTIPLE OF NUMBER: ");
 		Scanner sc = new Scanner(System.in);
-			System.out.println("Enter the number whose multiples are to be deleted:");
-			int multiple = sc.nextInt();
-			for(int i = 0 ; i <s;i++) 
-				if(arr[i]%multiple==0)
-					arr[i]=0;
-			for(int i = 0;i<s;i++) 
-				System.out.print(arr[i]+" ");
+        System.out.println("Enter the number whose multiples are to be deleted:");
+        int multiple = sc.nextInt();
+        for(int i = 0 ; i <s;i++) 
+            if(arr[i]%multiple==0)
+                arr[i]=0;
 	};
     static void mid(int arr[] , int s) {
 		System.out.println("\n\nLARGEST AND SMALLEST AT MIDDLE: ");
@@ -53,8 +51,6 @@ class array_func{
 		for(int i = s-1; i > middle-1;i--) 
 			arr[i+1] = arr[i];
 		arr[middle] = sum;
-		for(int i = 0;i<=s;i++)
-			System.out.print(arr[i]+" ");
 	};
 	static void reverse(int arr[] , int s) {
 		System.out.println("\n\nREVERSED ARRAY: ");
@@ -66,8 +62,6 @@ class array_func{
             start++;
             end--;
 		}
-		for(int i = 1;i<=s;i++) 
-			System.out.print(arr[i]+" ");
 	};
 };
 class matrix{
@@ -145,7 +139,7 @@ public class number_op{
         Scanner sn = new Scanner(System.in);
         int op = 0 ;
         while(true){
-            System.out.println("1-> Array Functions \n 2-> Matrix Functions \nEnter operation no.: ");
+            System.out.println("1-> Array Functions \n2-> Matrix Functions \nEnter operation no.: ");
             op = sn.nextInt();
 
             if(op == 1)
@@ -167,19 +161,20 @@ public class number_op{
             System.out.println("1 -> Clean Amstrong Numbers \n2 -> Delete all multiple of a number \n3 -> Sum of largest and smallest in middle \n4 -> Reverse Array \nEnter operation for your 1d Array: ");
             op = sn.nextInt();
             if(op == 1){
-                for(int i =0; i<size; i++){
-                    if(array_func.amstrong(arr[i]) == 1){
+                for(int i =0; i<size; i++)
+                    if(array_func.amstrong(arr[i]) == 1)
                         arr[i] = i;
-                    }
-                }
                 array_func.display(arr, size);
             }
             else if(op == 2){
                 array_func.deletion(arr, size);
+                array_func.display(arr, size);
             }else if(op == 3){
                 array_func.mid(arr, size);
+                array_func.display(arr, size);
             }else if(op == 4){
                 array_func.reverse(arr, size);
+                array_func.display(arr, size);
             }
             else if(op == 5)  break;
         }
@@ -188,7 +183,7 @@ public class number_op{
         Scanner sn = new Scanner(System.in);
         int op=0; 
         while(true){
-            System.out.println("1 -> Addition And Multiplication of Matrix \n2 -> Transpose of Matrix \nEnter operation for your 1d Array: ");
+            System.out.println("1 -> Addition And Multiplication of Matrix \n2 -> Transpose of Matrix \nEnter operation for your 2d Array: ");
             op = sn.nextInt();
             matrix ob1 = new matrix();
             if(op == 1){
