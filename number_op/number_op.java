@@ -21,7 +21,7 @@ class array_func{
     static void display(int arr[] , int s){
         for(int i = 0; i<s; i++) 
             System.out.print(arr[i]+" ");
-        
+        System.out.println();
     };
     static void deletion(int arr[] , int s) {
 		System.out.println("\n\nMULTIPLE OF NUMBER: ");
@@ -32,7 +32,7 @@ class array_func{
             if(arr[i]%multiple==0)
                 arr[i]=0;
 	};
-    static void mid(int arr[] , int s) {
+    static int mid(int arr[] , int s) {
 		System.out.println("\n\nLARGEST AND SMALLEST AT MIDDLE: ");
 		int max, min = max = arr[0];
 		for(int i=0;i<s;i++) {
@@ -51,10 +51,11 @@ class array_func{
 		for(int i = s-1; i > middle-1;i--) 
 			arr[i+1] = arr[i];
 		arr[middle] = sum;
+        return s+1;
 	};
 	static void reverse(int arr[] , int s) {
 		System.out.println("\n\nREVERSED ARRAY: ");
-		int start = 0,temp,end = s;
+		int start = 0,temp,end = s-1;
 		while(start<end) {
             temp = arr[start];
             arr[start] = arr[end];
@@ -79,11 +80,12 @@ class matrix{
                 arr[i][j] = sn.nextInt();
     };
     matrix(matrix ob){
-		row=ob.row;
-		col=ob.col;
-		for(int i=0;i<row;i++)
-			for(int j=0;j<col;j++)
-				arr[i][j]=ob.arr[i][j];
+		this.row=ob.row;
+		this.col=ob.col;
+        arr = new int[row][col];
+		for(int i=0;i<ob.row;i++)
+			for(int j=0;j<ob.col;j++)
+				this.arr[i][j] = ob.arr[i][j];
 	}
     void transpose(){
 		System.out.println("\nTranspose of Matrix: ");
@@ -101,6 +103,7 @@ class matrix{
 					temp.arr[j][i]=arr[i][j];
 					arr[i][j]=tp;
 				}
+        this.display();
 	}
     void add(matrix ob1, matrix ob2){
 		System.out.println("\nAddition of Matrix: ");
@@ -111,6 +114,7 @@ class matrix{
 				for(int j=0;j<col;j++)
 					arr[i][j]=ob1.arr[i][j]+ob2.arr[i][j];
 		}
+        this.display();
 	}
 	void multiply(matrix ob1,matrix ob2){
 		System.out.println("\nMultiplication of Matrix: ");
@@ -125,6 +129,7 @@ class matrix{
 					for(int k=0;k<col;k++)
 						arr[i][j]=arr[i][j]+(ob1.arr[i][k]*ob2.arr[k][j]);
 		}
+        this.display();
 	}
 	void display(){
 		for(int i=0;i<row;i++){
@@ -153,7 +158,7 @@ public class number_op{
         int size = 0 ,op = 0;
         System.out.println("Enter the Size of Array you want: ");
         size = sn.nextInt();
-        int arr[] = new int[size];
+        int arr[] = new int[size+1];
         System.out.println("Enter data in Array: ");
         for(int i =0 ; i<size ; i++)    
             arr[i] = sn.nextInt();
@@ -170,7 +175,7 @@ public class number_op{
                 array_func.deletion(arr, size);
                 array_func.display(arr, size);
             }else if(op == 3){
-                array_func.mid(arr, size);
+                size = array_func.mid(arr, size);
                 array_func.display(arr, size);
             }else if(op == 4){
                 array_func.reverse(arr, size);
@@ -182,14 +187,15 @@ public class number_op{
     static void array_2d(){
         Scanner sn = new Scanner(System.in);
         int op=0; 
+        matrix ob1 = new matrix();
         while(true){
             System.out.println("1 -> Addition And Multiplication of Matrix \n2 -> Transpose of Matrix \nEnter operation for your 2d Array: ");
             op = sn.nextInt();
-            matrix ob1 = new matrix();
             if(op == 1){
                 matrix ob2 = new matrix();
-                ob1.add(ob1, ob2);
-                ob1.multiply(ob1, ob2);
+                matrix ob3 = new matrix(ob2);
+                ob3.add(ob1, ob2);
+                ob3.multiply(ob1, ob2);
             }
             if(op == 2){
                 ob1.transpose();
