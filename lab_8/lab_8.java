@@ -1,30 +1,31 @@
 package lab_8;
 
-class constructor{
-    private double one,two;
-    public constructor(double one, double two) {
-        System.out.println("Copy Paremeter Called:"); 
+class cons{
+    double one,two;
+    public 
+    cons(double one, double two) {
+        System.out.println("Paremeter constructor Called:"); 
         this.one = one;
         this.two = two;
     }
-    public constructor() {}
-    public constructor(constructor s){
-        System.out.println("Copy Constructor Called:"); 
+    cons() {}
+    cons(cons s){
+        System.out.println("Copy constructor Called:"); 
         this.one = s.one; 
         this.two = s.two;
     }
-    public double getOne() {return one;}
-    public double getTwo() {return two;} 
+    double getOne() {return one;}
+    double getTwo() {return two;} 
 }
 class con_chain{ 
     public con_chain(){ 
-        System.out.println("This is default constructor."); } 
+        System.out.println("Default constructor."); } 
     con_chain(int a){ 
         this(); 
-        System.out.println("This is single parameter constructor."); } 
+        System.out.println("Single parameter constructor."); } 
     con_chain(int b,int c){ 
         this(b); 
-        System.out.println("This is multiple parameter constructor."); } 
+        System.out.println("Multiple parameter constructor."); } 
     con_chain(int d,int e,int f){ 
         this(d,e); 
         System.out.println("With three parameters"); } 
@@ -46,10 +47,10 @@ class hotel{
 } 
 public class lab_8 {
     public static void main(String[] args) { 
-        constructor x = new constructor(11.56,56.8);
+        cons x = new cons(11.56,56.8);
         System.out.println("First value is "+x.getOne()); 
         System.out.println("Second value is"+x.getTwo()); 
-        constructor x2 = new constructor(x);
+        cons x2 = new cons(x);
         System.out.println("First value is "+x2.getOne());
         System.out.println("Second value is "+x2.getTwo());
         System.out.println();
